@@ -1,44 +1,49 @@
- <!DOCTYPE html>
- <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
- <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="chrome=1">
-	<title>Simple PWA</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple PWA CRUD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <script defer src="js/main.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./js/sw.js");
+            });
+        }
+    </script>
+</head>
 
-	<!-- Styles -->
-	<link rel="stylesheet" href="style.css">
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <header class="bg-blue-500 p-4 text-white">
+        <div class="container mx-auto">
+            <h1 class="text-2xl">CRUD Application</h1>
+        </div>
+    </header>
 
-	<!-- Javscript -->
-	<script>
-		if ("serviceWorker" in navigator) {
-			window.addEventListener("load", () => {
-				navigator.serviceWorker && navigator.serviceWorker.register("./sw.js");
-			});
-		}
-	</script>
-	<script defer src="./main.js"></script>
- </head>
+    <main class="container mx-auto p-4">
+        <section id="form-section">
+            <h2 class="text-xl mb-4">Add New Item</h2>
+            <form id="item-form" class="bg-white p-4 shadow-md rounded">
+                <input type="text" id="item-name" class="p-2 border border-gray-300 rounded w-full mb-2" placeholder="Item Name" required>
+                <button type="submit" class="bg-blue-500 text-white p-2 rounded">Add Item</button>
+            </form>
+        </section>
 
- <body>
+        <section id="list-section" class="mt-6">
+            <h2 class="text-xl mb-4">Items</h2>
+            <ul id="item-list" class="list-disc pl-5">
+                <!-- Items will be dynamically inserted here -->
+            </ul>
+        </section>
+    </main>
 
-	<header>
-		<div class="container">
-		</div>
-	</header>
+    <footer class="bg-gray-800 p-4 text-white text-center">
+        <p>&copy; 2024 Simple PWA CRUD</p>
+    </footer>
+</body>
 
-	<section>
-		<div class="container">
-		</div>
-	</section>
-
-	<footer>
-		<div class="container">
-			<p></p>
-		</div>
-	</footer>
-
- </body>
-
- </html>
+</html>
