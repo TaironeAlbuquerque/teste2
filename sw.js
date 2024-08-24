@@ -8,10 +8,8 @@ self.addEventListener("install", event => {
 		caches.open(cacheName).then(cache => {
 			return cache.addAll([
 				"/",
-				"favicon.ico", // Favicon, IE and fallback for other browsers
 				"index.html", // Main HTML file
 				"manifest.json", // Manifest file
-				"style.css", // Main CSS file
 			]);
 		})
 	);
